@@ -17,7 +17,7 @@ class PerfilScreen extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         const Text(
-          "USER",
+          "Valeria Herrera 6- I",
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 30),
