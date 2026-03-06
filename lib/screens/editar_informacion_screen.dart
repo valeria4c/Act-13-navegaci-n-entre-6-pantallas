@@ -6,7 +6,7 @@ class EditarInformacionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Fondo blanco
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
@@ -32,92 +32,89 @@ class EditarInformacionScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
-          child: Container(
-            padding: const EdgeInsets.all(20.0),
-            decoration: BoxDecoration(
-              color: Colors.grey[200], // Fondo gris claro para el formulario
-              borderRadius: BorderRadius.circular(15.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withAlpha(25),
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 3),
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(15.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withAlpha(25),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Botón/Texto de Volver
-                GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: const Row(
-                    children: [
-                      Text(
-                        '< ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).pop(),
+                      child: const Row(
+                        children: [
+                          Text(
+                            '< ',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'Editar Información',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        'Editar Información',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-
-                // Campos del formulario
-                _buildInputField("Nombre:"),
-                _buildInputField("Apellidos:"),
-                _buildInputField("Correo:"),
-                _buildInputField("Contraseña:", isPassword: true),
-                _buildInputField("Numero de telefono:"),
-
-                const SizedBox(height: 20),
-
-                // Botón Cambiar (Naranja)
-                Center(
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: 55,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange[700],
-                        foregroundColor: Colors.black,
-                        side: const BorderSide(color: Colors.black, width: 2),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        elevation: 10,
-                        shadowColor: Colors.orange.withAlpha(150),
-                      ),
-                      child: const Text(
-                        'Cambiar',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                    ),
+                    const SizedBox(height: 20),
+                    _buildInputField("Nombre:"),
+                    _buildInputField("Apellidos:"),
+                    _buildInputField("Correo:"),
+                    _buildInputField("Contraseña:", isPassword: true),
+                    _buildInputField("Numero de telefono:"),
+                    const SizedBox(height: 20),
+                    Center(
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 55,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.orange[700],
+                            foregroundColor: Colors.black,
+                            side: const BorderSide(color: Colors.black, width: 2),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            elevation: 10,
+                            shadowColor: Colors.orange.withAlpha(150),
+                          ),
+                          child: const Text(
+                            'Cambiar',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 
-  // Widget reutilizable para los inputs
   Widget _buildInputField(String label, {bool isPassword = false}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
